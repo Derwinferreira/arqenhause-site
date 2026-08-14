@@ -150,6 +150,7 @@ footer .muted { color: var(--muted); font-size: 13px; }
 }
 
 section.block { padding: 64px 0; }
+section.block:first-of-type { padding-top: 28px; }
 
 /* Carousel */
 .carousel {
@@ -164,7 +165,7 @@ section.block { padding: 64px 0; }
 .carousel-card {
   position: relative;
   flex: 0 0 44%;
-  aspect-ratio: 3/4;
+  aspect-ratio: 3/5;
   border-radius: 0;
   overflow: hidden;
   scroll-snap-align: start;
@@ -182,10 +183,10 @@ section.block { padding: 64px 0; }
   z-index: 2;
 }
 .carousel-card .cap .title {
-  font-size: 15px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.04em;
 }
 
 /* Copy block */
