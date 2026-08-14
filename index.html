@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arqen — Built to Build It</title>
+<meta name="description" content="Arqen is a construction studio serving Toronto and the GTA. Scan, design, and preview your renovation, custom home, pool, or outdoor project in AR, then let our team build it.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-bg" style="background-image:url('img/hero.jpg');"></div>
+
+  <div class="brandbar">
+    <img src="img/logo.png" alt="Arqen">
+  </div>
+
+  <a id="float-quote" class="btn btn-primary float-cta" href="#quote">Get a Free Quote →</a>
+
+  <div class="hero-content">
+    <h1>Built to<br>build it.</h1>
+
+    <div class="tags-row">
+      <span class="tag">Custom Homes</span>
+      <span class="tag">Renovations</span>
+      <span class="tag">Pools &amp; Outdoor</span>
+    </div>
+
+    <p class="sub">Scan your space, design in 3D, and preview it in AR on your real lot. Arqen is a full construction studio serving Toronto and the GTA, from first scan to finished build.</p>
+
+    <a class="btn btn-primary" href="#quote">Get a Free Quote →</a>
+
+    <div class="infobar">
+      <span class="eyebrow">Toronto &amp; the GTA</span>
+      <span class="eyebrow">Design + Build</span>
+    </div>
+  </div>
+</section>
+
+<section class="block fade-up">
+  <div class="carousel">
+    <div class="carousel-card">
+      <div class="cap">
+        <div class="title">BUILT TO ORDER</div>
+      </div>
+    </div>
+    <div class="carousel-card">
+      <div class="cap">
+        <div class="title">TRANSFORM IT</div>
+      </div>
+    </div>
+    <div class="carousel-card">
+      <div class="cap">
+        <div class="title">DESIGN THE YARD</div>
+      </div>
+    </div>
+    <div class="carousel-card">
+      <div class="cap">
+        <div class="title">SCAN IT FIRST</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap block fade-up">
+  <h2>Design it with us. Build it with us.</h2>
+  <p>Most contractor apps stop at a quote. Arqen starts with a real scan of your space, lets you design and preview the result in 3D and AR, then carries that same plan through permits, scheduling, and construction.</p>
+  <p>One project, one team, one app: your project manager, contractor, and design lead, all in the same thread as your plans, phases, and milestones.</p>
+</section>
+
+<section class="wrap quote-block fade-up">
+  <blockquote>&ldquo;They scanned our kitchen, showed us three designs in AR, and started framing five weeks later.&rdquo;</blockquote>
+  <div class="quote-meta">
+    <span class="quote-badge">Toronto homeowner</span>
+    <span class="quote-badge">Full kitchen renovation</span>
+  </div>
+</section>
+
+<section class="fade-up" style="padding: 8px 0 48px;">
+  <div class="press-row">
+    <span class="press-item serif">Forbes</span>
+    <span class="press-item">Toronto Life</span>
+    <span class="press-item condensed">FAST COMPANY</span>
+    <span class="press-item">Business Insider</span>
+    <span class="press-item script">Dwell</span>
+    <span class="press-item"> Apple</span>
+    <span class="press-item">Toronto Star</span>
+  </div>
+</section>
+
+<section class="wrap final-cta fade-up">
+  <h2 style="margin-bottom:24px;">Ready to start?</h2>
+  <a id="quote" class="btn btn-primary" href="mailto:support@arqenhause.com?subject=Free%20Quote%20Request">Get a Free Quote →</a>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="muted">© 2026 Arqen</div>
+    <div class="links">
+      <a href="/arqen/support.html">Support</a>
+      <a href="/arqen/privacy.html">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var els = document.querySelectorAll('.fade-up');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.15 });
+  els.forEach(function(el){ io.observe(el); });
+
+  var floatCta = document.getElementById('float-quote');
+  var heroEl = document.querySelector('.hero');
+  var heroH = heroEl.offsetHeight;
+  function onScroll(){
+    if (window.scrollY > heroH * 0.6) { floatCta.classList.add('show'); }
+    else { floatCta.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
+
+:root {
+  --black: #000000;
+  --charcoal-1: #1c1c1e;
+  --charcoal-2: #2c2c2e;
+  --cream: #f2eee5;
+  --white: #ffffff;
+  --muted: #9a9a9d;
+  --hairline: rgba(255,255,255,0.12);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { scrollbar-width: none; -ms-overflow-style: none; }
+html::-webkit-scrollbar { display: none; width: 0; height: 0; }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'General Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar { display: none; width: 0; height: 0; }
+a { color: var(--white); }
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Top logo row */
+.brandbar {
+  position: fixed;
+  top: 28px;
+  left: 24px;
+  z-index: 50;
+}
+.brandbar img { height: 32px; display: block; }
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 30%, rgba(0,0,0,0.9) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 24px 40px;
+}
+.hero h1 {
+  font-size: 11vw;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+@media (min-width: 640px) {
+  .hero h1 { font-size: 48px; }
+}
+
+.tags-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.tag {
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.hero p.sub {
+  color: #d8d8d8;
+  font-size: 16px;
+  max-width: 420px;
+  margin: 0 0 28px;
+  font-weight: 400;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 26px;
+  border-radius: 999px;
+  font-weight: 500;
+  font-size: 15px;
+  text-decoration: none;
+}
+.btn-primary { background: var(--cream); color: #14120e; }
+.btn-primary:hover { opacity: 0.9; }
+
+/* Bottom hairline info bar */
+.infobar {
+  border-top: 1px solid var(--hairline);
+  margin-top: 32px;
+  padding-top: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.infobar .eyebrow { font-size: 11px; }
+
+footer {
+  border-top: 1px solid var(--hairline);
+  padding: 28px 0;
+  background: var(--black);
+}
+footer .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+footer .links { display: flex; gap: 18px; font-size: 14px; }
+footer .links a { color: var(--muted); text-decoration: none; }
+footer .links a:hover { color: var(--white); }
+footer .muted { color: var(--muted); font-size: 13px; }
+
+/* Scroll fade-in */
+.fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section.block { padding: 64px 0; }
+
+/* Carousel */
+.carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 0 24px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel::-webkit-scrollbar { display: none; }
+.carousel-card {
+  position: relative;
+  flex: 0 0 44%;
+  aspect-ratio: 3/4;
+  border-radius: 0;
+  overflow: hidden;
+  scroll-snap-align: start;
+  background: linear-gradient(160deg, var(--charcoal-2) 0%, var(--charcoal-1) 60%, #101011 100%);
+}
+.carousel-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,0.75) 100%);
+}
+.carousel-card .cap {
+  position: absolute;
+  left: 12px; bottom: 12px; right: 12px;
+  z-index: 2;
+}
+.carousel-card .cap .title {
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+/* Copy block */
+.block h2 {
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0 0 16px;
+  max-width: 520px;
+}
+.block p {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 480px;
+  margin: 0 0 14px;
+}
+
+/* Quote */
+.quote-block { padding: 64px 0; border-top: 1px solid var(--hairline); }
+.quote-block blockquote {
+  font-size: 30px;
+  font-weight: 500;
+  margin: 0 0 24px;
+  max-width: 620px;
+  line-height: 1.2;
+}
+.quote-meta {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.quote-badge {
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Press marquee */
+.press-row {
+  display: flex;
+  gap: 40px;
+  overflow-x: auto;
+  padding: 8px 24px 16px;
+  -webkit-overflow-scrolling: touch;
+}
+.press-row::-webkit-scrollbar { display: none; }
+.press-item {
+  flex: 0 0 auto;
+  color: rgba(255,255,255,0.42);
+  font-size: 20px;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.press-item.serif { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; }
+.press-item.condensed { letter-spacing: 0.02em; font-weight: 700; }
+.press-item.script { font-style: italic; font-weight: 500; }
+
+/* Final CTA */
+.final-cta { padding: 72px 0 96px; text-align: left; }
+
+/* Floating quote button (mirrors the fixed logo, appears after scrolling past hero) */
+.float-cta {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  padding: 10px 18px;
+  font-size: 13px;
+}
+.float-cta.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Doc pages (support / privacy) keep readable on black for now */
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+.doc { padding-top: 48px; }
+.doc h1 { font-size: 32px; font-weight: 700; }
+.doc h2 { font-size: 19px; font-weight: 600; margin-top: 32px; }
+.doc p, .doc li { color: var(--muted); font-size: 15px; }
+.doc .updated { color: var(--muted); font-size: 13px; margin-bottom: 28px; }
+.doc a { color: var(--cream); }
