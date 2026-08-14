@@ -150,16 +150,16 @@ footer .muted { color: var(--muted); font-size: 13px; }
 }
 
 section.block { padding: 64px 0; }
-section.carousel-block { padding-top: 20px; }
+section.carousel-block { padding-top: 0; margin-top: -12px; }
 
 /* Carousel */
 .carousel {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   overflow-x: auto;
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 18px;
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
 }
