@@ -159,10 +159,12 @@ section.carousel-block { padding-top: 0; margin-top: -12px; }
   overflow-x: auto;
   max-width: 860px;
   margin: 0 auto;
-  padding: 0 18px;
+  padding: 0;
   scroll-snap-type: x proximity;
   -webkit-overflow-scrolling: touch;
 }
+.carousel-card:first-child { margin-left: 18px; }
+.carousel-card:last-child { margin-right: 18px; }
 .carousel::-webkit-scrollbar { display: none; }
 .carousel-card {
   position: relative;
