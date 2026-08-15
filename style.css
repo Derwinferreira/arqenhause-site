@@ -240,15 +240,11 @@ section.carousel-block { padding-top: 0; margin-top: -12px; }
 .press-row::-webkit-scrollbar { display: none; }
 .press-item {
   flex: 0 0 auto;
-  color: rgba(255,255,255,0.42);
-  font-size: 20px;
-  white-space: nowrap;
-  display: flex;
-  align-items: center;
+  height: 24px;
+  width: auto;
+  opacity: 0.42;
+  display: block;
 }
-.press-item.serif { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; }
-.press-item.condensed { letter-spacing: 0.02em; font-weight: 700; }
-.press-item.script { font-style: italic; font-weight: 500; }
 
 /* Final CTA */
 .final-cta { padding: 72px 0 96px; text-align: left; }
