@@ -102,19 +102,23 @@
   </div>
 </section>
 
-<section class="wrap phones-block fade-up">
-  <div class="phones-carousel">
-    <div class="phone-mock">
-      <div class="phone-screen"></div>
-      <img class="phone-frame" src="img/iphone17-frame.png" alt="Arqen app screen">
-    </div>
-    <div class="phone-mock">
-      <div class="phone-screen"></div>
-      <img class="phone-frame" src="img/iphone17-frame.png" alt="Arqen app screen">
-    </div>
-    <div class="phone-mock">
-      <div class="phone-screen"></div>
-      <img class="phone-frame" src="img/iphone17-frame.png" alt="Arqen app screen">
+<section class="phones-block fade-up">
+  <div class="phones-marquee">
+    <div class="phones-track" id="phonesTrack">
+      <div class="phones-row">
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-1.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-2.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-3.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-4.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-5.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+      </div>
+      <div class="phones-row" aria-hidden="true">
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-1.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-2.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-3.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-4.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-5.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+      </div>
     </div>
   </div>
 </section>
@@ -159,6 +163,19 @@
     var track = document.getElementById('pressTrack');
     if (!track) return;
     var speed = 34; // px/sec, matches the app's marquee feel
+    function setDuration(){
+      var half = track.scrollWidth / 2;
+      if (half > 0) track.style.animationDuration = (half / speed) + 's';
+    }
+    setDuration();
+    window.addEventListener('resize', setDuration);
+  })();
+
+  // App screenshot phone marquee: infinite auto-scroll, no snapping.
+  (function(){
+    var track = document.getElementById('phonesTrack');
+    if (!track) return;
+    var speed = 40; // px/sec
     function setDuration(){
       var half = track.scrollWidth / 2;
       if (half > 0) track.style.animationDuration = (half / speed) + 's';

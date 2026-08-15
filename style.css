@@ -192,26 +192,34 @@ section.carousel-block { padding-top: 0; margin-top: -12px; }
   letter-spacing: 0.04em;
 }
 
-/* Phone mockup carousel */
-section.phones-block { padding: 24px 0 64px; }
-.phones-carousel {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 0 18px 8px;
-  scroll-padding-inline: 18px;
-  scroll-snap-type: x proximity;
-  -webkit-overflow-scrolling: touch;
+/* Phone mockup carousel: infinite auto-scroll marquee, no snapping */
+section.phones-block { padding: 24px 0 64px; overflow: hidden; }
+.phones-marquee {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
 }
-.phones-carousel::-webkit-scrollbar { display: none; }
+.phones-track {
+  display: flex;
+  width: max-content;
+  animation: phones-scroll linear infinite;
+}
+.phones-track:hover { animation-play-state: paused; }
+.phones-row {
+  display: flex;
+  gap: 14px;
+  padding: 0 7px;
+  flex-shrink: 0;
+}
+@keyframes phones-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 .phone-mock {
   position: relative;
-  flex: 0 0 46%;
-  max-width: 220px;
+  flex: 0 0 auto;
+  width: 220px;
   aspect-ratio: 711 / 1360;
-  scroll-snap-align: start;
 }
 .phone-mock .phone-screen {
   position: absolute;
