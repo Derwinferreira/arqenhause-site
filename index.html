@@ -78,14 +78,27 @@
 </section>
 
 <section class="fade-up" style="padding: 8px 0 48px;">
-  <div class="press-row">
-    <img class="press-item" src="img/press/forbes-white.png" alt="Forbes">
-    <img class="press-item" src="img/press/toronto-life-white.png" alt="Toronto Life">
-    <img class="press-item" src="img/press/fast-company-white.png" alt="Fast Company">
-    <img class="press-item" src="img/press/business-insider-white.png" alt="Business Insider">
-    <img class="press-item" src="img/press/dwell-white.png" alt="Dwell">
-    <img class="press-item" src="img/press/apple-white.png" alt="Apple">
-    <img class="press-item" src="img/press/toronto-star-white.png" alt="Toronto Star">
+  <div class="press-marquee">
+    <div class="press-track" id="pressTrack">
+      <div class="press-row">
+        <img class="press-item" src="img/press/forbes-white.png" alt="Forbes">
+        <img class="press-item" src="img/press/toronto-life-white.png" alt="Toronto Life">
+        <img class="press-item" src="img/press/fast-company-white.png" alt="Fast Company">
+        <img class="press-item" src="img/press/business-insider-white.png" alt="Business Insider">
+        <img class="press-item" src="img/press/dwell-white.png" alt="Dwell">
+        <img class="press-item" src="img/press/apple-white.png" alt="Apple">
+        <img class="press-item" src="img/press/toronto-star-white.png" alt="Toronto Star">
+      </div>
+      <div class="press-row" aria-hidden="true">
+        <img class="press-item" src="img/press/forbes-white.png" alt="">
+        <img class="press-item" src="img/press/toronto-life-white.png" alt="">
+        <img class="press-item" src="img/press/fast-company-white.png" alt="">
+        <img class="press-item" src="img/press/business-insider-white.png" alt="">
+        <img class="press-item" src="img/press/dwell-white.png" alt="">
+        <img class="press-item" src="img/press/apple-white.png" alt="">
+        <img class="press-item" src="img/press/toronto-star-white.png" alt="">
+      </div>
+    </div>
   </div>
 </section>
 
@@ -122,6 +135,19 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  // Press logo marquee: slow, seamless auto-scroll, mirrors the app paywall.
+  (function(){
+    var track = document.getElementById('pressTrack');
+    if (!track) return;
+    var speed = 34; // px/sec, matches the app's marquee feel
+    function setDuration(){
+      var half = track.scrollWidth / 2;
+      if (half > 0) track.style.animationDuration = (half / speed) + 's';
+    }
+    setDuration();
+    window.addEventListener('resize', setDuration);
+  })();
 </script>
 
 </body>

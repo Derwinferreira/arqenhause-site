@@ -229,15 +229,29 @@ section.carousel-block { padding-top: 0; margin-top: -12px; }
   color: var(--muted);
 }
 
-/* Press marquee */
+/* Press marquee: slow, seamless auto-scroll, mirrors the app paywall */
+.press-marquee {
+  overflow: hidden;
+  padding: 8px 0 16px;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 40px, #000 calc(100% - 40px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 40px, #000 calc(100% - 40px), transparent);
+}
+.press-track {
+  display: flex;
+  width: max-content;
+  animation: press-scroll 30s linear infinite;
+}
+.press-marquee:hover .press-track { animation-play-state: paused; }
+@keyframes press-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 .press-row {
   display: flex;
   gap: 40px;
-  overflow-x: auto;
-  padding: 8px 24px 16px;
-  -webkit-overflow-scrolling: touch;
+  flex: 0 0 auto;
+  padding: 0 20px;
 }
-.press-row::-webkit-scrollbar { display: none; }
 .press-item {
   flex: 0 0 auto;
   height: 24px;
