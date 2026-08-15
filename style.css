@@ -149,7 +149,7 @@ footer .muted { color: var(--muted); font-size: 13px; }
   transform: translateY(0);
 }
 
-section.block { padding: 56px 0 40px; }
+section.block { padding-top: 56px; padding-bottom: 40px; }
 section.carousel-block { padding-top: 0; margin-top: -12px; }
 
 /* Carousel */
@@ -274,7 +274,7 @@ section.phones-block { padding: 24px 0 64px; }
 }
 
 /* Quote */
-section.quote-block { padding: 48px 0 40px; border-top: 1px solid var(--hairline); }
+section.quote-block { padding-top: 48px; padding-bottom: 40px; border-top: 1px solid var(--hairline); }
 .quote-block blockquote {
   font-size: 30px;
   font-weight: 500;
@@ -328,7 +328,7 @@ section.quote-block { padding: 48px 0 40px; border-top: 1px solid var(--hairline
 }
 
 /* Final CTA */
-section.final-cta { padding: 48px 0 72px; text-align: left; }
+section.final-cta { padding-top: 48px; padding-bottom: 72px; text-align: left; }
 
 /* Floating quote button (mirrors the fixed logo, appears after scrolling past hero) */
 .float-cta {
