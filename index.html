@@ -171,17 +171,23 @@
     window.addEventListener('resize', setDuration);
   })();
 
-  // App screenshot phone marquee: infinite auto-scroll, no snapping.
+  // App screenshot phone carousel: manual scroll only, loops infinitely, no snapping.
   (function(){
     var track = document.getElementById('phonesTrack');
-    if (!track) return;
-    var speed = 40; // px/sec
-    function setDuration(){
-      var half = track.scrollWidth / 2;
-      if (half > 0) track.style.animationDuration = (half / speed) + 's';
-    }
-    setDuration();
-    window.addEventListener('resize', setDuration);
+    var viewport = track ? track.parentElement : null;
+    if (!track || !viewport) return;
+    function loopWidth(){ return track.scrollWidth / 2; }
+    // Start in the middle copy so the user can scroll either direction and still loop.
+    viewport.scrollLeft = loopWidth();
+    viewport.addEventListener('scroll', function(){
+      var half = loopWidth();
+      if (half <= 0) return;
+      if (viewport.scrollLeft <= 0) {
+        viewport.scrollLeft += half;
+      } else if (viewport.scrollLeft >= half * 2 - viewport.clientWidth) {
+        viewport.scrollLeft -= half;
+      }
+    }, { passive: true });
   })();
 </script>
 
