@@ -104,22 +104,26 @@
 
 <section class="phones-block fade-up">
   <div class="phones-marquee">
-    <div class="phones-track" id="phonesTrack">
-      <div class="phones-row">
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-1.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-2.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-3.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-4.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-5.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
-      </div>
-      <div class="phones-row" aria-hidden="true">
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-1.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-2.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-3.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-4.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
-        <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-5.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+    <div class="phones-scroll" id="phonesScroll">
+      <div class="phones-track" id="phonesTrack">
+        <div class="phones-row">
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-1.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-2.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-3.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-4.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-5.jpg" alt="Arqen app screen"></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        </div>
+        <div class="phones-row" aria-hidden="true">
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-1.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-2.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-3.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-4.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+          <div class="phone-mock"><div class="phone-screen"><img src="img/screenshots/app-5.jpg" alt=""></div><img class="phone-frame" src="img/iphone17-frame.png" alt=""></div>
+        </div>
       </div>
     </div>
+    <div class="fade-edge fade-left" aria-hidden="true"></div>
+    <div class="fade-edge fade-right" aria-hidden="true"></div>
   </div>
 </section>
 
@@ -174,7 +178,7 @@
   // App screenshot phone carousel: manual scroll only, loops infinitely, no snapping.
   (function(){
     var track = document.getElementById('phonesTrack');
-    var viewport = track ? track.parentElement : null;
+    var viewport = document.getElementById('phonesScroll');
     if (!track || !viewport) return;
     function loopWidth(){ return track.scrollWidth / 2; }
     // Start in the middle copy so the user can scroll either direction and still loop.

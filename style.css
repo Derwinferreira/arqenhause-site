@@ -193,15 +193,31 @@ section.carousel-block { padding-top: 0; margin-top: -12px; }
 }
 
 /* Phone mockup carousel: manual scroll, infinite loop, no snapping */
-section.phones-block { padding: 24px 0 64px; overflow: hidden; }
+section.phones-block { padding: 24px 0 64px; }
 .phones-marquee {
+  position: relative;
+}
+.phones-marquee .phones-scroll {
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
-  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
-  mask-image: linear-gradient(to right, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
 }
-.phones-marquee::-webkit-scrollbar { display: none; }
+.phones-marquee .phones-scroll::-webkit-scrollbar { display: none; }
+.phones-marquee .fade-edge {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 56px;
+  z-index: 3;
+  pointer-events: none;
+}
+.phones-marquee .fade-left {
+  left: 0;
+  background: linear-gradient(to right, var(--black) 0%, rgba(0,0,0,0) 100%);
+}
+.phones-marquee .fade-right {
+  right: 0;
+  background: linear-gradient(to left, var(--black) 0%, rgba(0,0,0,0) 100%);
+}
 .phones-track {
   display: flex;
   width: max-content;
