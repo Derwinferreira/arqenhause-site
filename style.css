@@ -192,6 +192,52 @@ section.carousel-block { padding-top: 0; margin-top: -12px; }
   letter-spacing: 0.04em;
 }
 
+/* Phone mockup carousel */
+section.phones-block { padding: 24px 0 64px; }
+.phones-carousel {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 18px 8px;
+  scroll-padding-inline: 18px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
+}
+.phones-carousel::-webkit-scrollbar { display: none; }
+.phone-mock {
+  position: relative;
+  flex: 0 0 46%;
+  max-width: 220px;
+  aspect-ratio: 711 / 1360;
+  scroll-snap-align: start;
+}
+.phone-mock .phone-screen {
+  position: absolute;
+  left: 6.33%;
+  right: 6.33%;
+  top: 2.43%;
+  bottom: 2.65%;
+  border-radius: 11%;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--charcoal-2) 0%, var(--charcoal-1) 60%, #101011 100%);
+}
+.phone-mock .phone-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.phone-mock .phone-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
 /* Copy block */
 .block h2 {
   font-size: 26px;
