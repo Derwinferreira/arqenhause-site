@@ -327,6 +327,87 @@ section.quote-block { padding-top: 48px; padding-bottom: 40px; border-top: 1px s
   display: block;
 }
 
+/* Project type grid (charcoal placeholders until real photos land) */
+section.grid-block { padding-top: 56px; padding-bottom: 8px; border-top: 1px solid var(--hairline); }
+section.grid-block .eyebrow { display: block; margin-bottom: 12px; }
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 28px;
+}
+.project-card {
+  position: relative;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--charcoal-2) 0%, var(--charcoal-1) 60%, #101011 100%);
+}
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 55%, rgba(0,0,0,0.75) 100%);
+}
+.project-card .ph {
+  position: absolute;
+  inset: 0;
+}
+.project-card .label {
+  position: absolute;
+  left: 10px; bottom: 10px; right: 10px;
+  z-index: 2;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+@media (min-width: 640px) {
+  .project-card .label { font-size: 14px; }
+}
+
+/* FAQ accordion */
+section.faq-block { padding-top: 56px; padding-bottom: 40px; }
+.faq-list { margin-top: 8px; }
+.faq-item { border-top: 1px solid var(--hairline); }
+.faq-item:last-child { border-bottom: 1px solid var(--hairline); }
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: none;
+  border: none;
+  color: var(--white);
+  text-align: left;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 20px 0;
+  cursor: pointer;
+}
+.faq-icon {
+  flex: 0 0 auto;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--muted);
+  transition: transform 0.25s ease;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-a {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-a-inner { padding-bottom: 20px; }
+.faq-a p {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 560px;
+  margin: 0;
+  line-height: 1.5;
+}
+
 /* Final CTA */
 section.final-cta { padding-top: 48px; padding-bottom: 72px; text-align: left; }
 

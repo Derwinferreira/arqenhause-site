@@ -127,6 +127,95 @@
   </div>
 </section>
 
+<section class="wrap block grid-block fade-up">
+  <span class="eyebrow">What we build</span>
+  <h2>One studio, every kind of project.</h2>
+  <p>Custom homes, full renovations, pools and outdoor living, all scanned, designed, and built by the same team.</p>
+  <div class="project-grid">
+    <div class="project-card">
+      <div class="ph"></div>
+      <div class="label">Custom Homes</div>
+    </div>
+    <div class="project-card">
+      <div class="ph"></div>
+      <div class="label">Renovations</div>
+    </div>
+    <div class="project-card">
+      <div class="ph"></div>
+      <div class="label">Pools &amp; Outdoor</div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap faq-block fade-up">
+  <h2>FAQ</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" type="button">
+        <span>Do I need to create an account to get a quote?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>No. Request a free quote anytime, no account needed to get started. You'll create one later if you decide to move forward with a project.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">
+        <span>Is there an Arqen app?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes. Download the Arqen app to scan your space, explore designs in 3D and AR, and message your project team once you're underway.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">
+        <span>What is a space scan?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Using your phone's camera, we capture the exact dimensions of your space so every design and quote is based on your real lot, not a rough estimate.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">
+        <span>Who is Arqen for?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Homeowners in Toronto and the GTA planning a custom build, a renovation, or a pool and outdoor project, and who want to see it before committing to it.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">
+        <span>How does the process work?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Scan your space, review designs in AR, get a quote, then we handle permits, scheduling, and construction, all in the same app and with the same team.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">
+        <span>How long does a typical project take?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>It depends on scope. Most kitchen or bathroom renovations run 4 to 8 weeks once permits clear. Custom homes and larger builds are scoped project by project during your quote.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">
+        <span>What areas do you serve?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Toronto and the greater GTA, including the surrounding suburbs and satellite cities.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">
+        <span>Do I need any design experience to use the app?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>No. Our design team builds out your options after your scan. The app is there so you can preview, compare, and approve, not so you have to design it yourself.</p></div></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">
+        <span>Can I make changes after the quote is approved?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-a"><div class="faq-a-inner"><p>Yes, within reason. Your project manager will walk through any change requests with you and let you know how they affect timeline and cost before anything is locked in.</p></div></div>
+    </div>
+  </div>
+</section>
+
 <section class="wrap final-cta fade-up">
   <h2 style="margin-bottom:24px;">Ready to start?</h2>
   <a id="quote" class="btn btn-primary" href="mailto:support@arqenhause.com?subject=Free%20Quote%20Request">Get a Free Quote →</a>
@@ -192,6 +281,26 @@
         viewport.scrollLeft -= half;
       }
     }, { passive: true });
+  })();
+
+  // FAQ accordion: one open at a time, animated height.
+  (function(){
+    var items = document.querySelectorAll('.faq-item');
+    items.forEach(function(item){
+      var q = item.querySelector('.faq-q');
+      var a = item.querySelector('.faq-a');
+      q.addEventListener('click', function(){
+        var isOpen = item.classList.contains('open');
+        items.forEach(function(other){
+          other.classList.remove('open');
+          other.querySelector('.faq-a').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+        }
+      });
+    });
   })();
 </script>
 
