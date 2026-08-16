@@ -10,7 +10,7 @@
   --hairline: rgba(255,255,255,0.12);
 }
 * { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+html, body { margin: 0; padding: 0; max-width: 100%; overflow-x: hidden; }
 html { scrollbar-width: none; -ms-overflow-style: none; }
 html::-webkit-scrollbar { display: none; width: 0; height: 0; }
 body {
@@ -442,11 +442,8 @@ body.quote-page {
   justify-content: space-between;
   padding: 24px 20px 0;
 }
-.quote-wordmark {
-  font-weight: 600;
-  font-size: 16px;
-  letter-spacing: 0.01em;
-}
+.quote-topbar span:first-child { width: 24px; }
+.quote-logo { height: 22px; display: block; }
 .quote-close {
   font-size: 28px;
   line-height: 1;
@@ -458,6 +455,7 @@ body.quote-page {
 
 .quote-shell {
   flex: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -519,6 +517,7 @@ body.quote-page {
   line-height: 1.35;
   margin: 0;
   max-width: 400px;
+  width: 100%;
 }
 .quote-attrib {
   color: var(--muted);
@@ -526,8 +525,16 @@ body.quote-page {
   margin-top: -16px;
 }
 
-.btn-download { padding: 16px 28px; font-size: 15px; }
-.apple-icon { width: 16px; height: 16px; fill: #14120e; }
+.btn.full {
+  width: 100%;
+  max-width: 400px;
+  justify-content: center;
+}
+.btn-download { padding: 18px 28px; font-size: 16px; }
+.apple-icon { width: 17px; height: 17px; fill: #14120e; }
+@media (min-width: 640px) {
+  .quote-shell { padding-top: 48px; padding-bottom: 72px; }
+}
 
 /* Doc pages (support / privacy) keep readable on black for now */
 .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
